@@ -1,0 +1,48 @@
+<?xml encoding="utf-8"?>
+
+<!-- ==================== Top Level Elements ============================== -->
+
+<!ELEMENT theme ((resource|resources|control)*)>
+<!ATTLIST theme
+    extends CDATA #IMPLIED>
+
+<!ELEMENT resource (rendered*|(content-type|href)+)>
+<!ATTLIST resource
+	content-type CDATA #IMPLIED
+	href CDATA #IMPLIED
+    dojoTheme CDATA #IMPLIED
+	rendered CDATA #IMPLIED>
+
+<!ELEMENT resources ((styleSheet|script)*)>
+
+<!ELEMENT control ((name|property)*)>
+<!ATTLIST control
+    override CDATA #IMPLIED>
+
+<!ELEMENT content-type (#PCDATA)>
+
+<!ELEMENT href (#PCDATA)>
+
+<!ELEMENT rendered (#PCDATA)>
+
+<!ELEMENT styleSheet EMPTY>
+<!ATTLIST styleSheet
+    href CDATA #REQUIRED
+    media CDATA #IMPLIED
+    target CDATA #REQUIRED
+    type CDATA #REQUIRED>
+
+<!ELEMENT script EMPTY>
+<!ATTLIST script
+    clientSide CDATA #REQUIRED
+    src CDATA #REQUIRED
+    target CDATA #REQUIRED
+    type CDATA #REQUIRED>
+
+<!ELEMENT property (name|value)>
+<!ATTLIST property
+    mode CDATA #IMPLIED>
+
+<!ELEMENT value (#PCDATA)>
+
+<!ELEMENT name (#PCDATA)>
