@@ -4,20 +4,28 @@
 
 <!ELEMENT theme ((resource|resources|control)*)>
 <!ATTLIST theme
-    extends CDATA #IMPLIED>
+    extends CDATA #IMPLIED
+	xmlns:xsi CDATA #IMPLIED
+	xsi:noNamespaceSchemaLocation CDATA #IMPLIED>
 
 <!ELEMENT resource (rendered*|(content-type|href)+)>
 <!ATTLIST resource
 	content-type CDATA #IMPLIED
 	href CDATA #IMPLIED
+	media CDATA #IMPLIED
+	target CDATA #IMPLIED
     dojoTheme CDATA #IMPLIED
 	rendered CDATA #IMPLIED>
 
-<!ELEMENT resources ((styleSheet|script)*)>
+<!ELEMENT resources ((styleSheet|script|bundle|dojoModule|script|linkResource|metaData)*)>
 
 <!ELEMENT control ((name|property)*)>
 <!ATTLIST control
     override CDATA #IMPLIED>
+
+<!ELEMENT complex ((name|property)*)>
+<!ATTLIST complex
+    type CDATA #IMPLIED>
 
 <!ELEMENT content-type (#PCDATA)>
 
@@ -25,22 +33,71 @@
 
 <!ELEMENT rendered (#PCDATA)>
 
-<!ELEMENT styleSheet EMPTY>
-<!ATTLIST styleSheet
-    href CDATA #REQUIRED
-    media CDATA #IMPLIED
-    target CDATA #REQUIRED
-    type CDATA #REQUIRED>
+<!ELEMENT loaded (#PCDATA)>
 
-<!ELEMENT script EMPTY>
+<!ELEMENT styleSheet ((contents|href)+)>
+<!ATTLIST styleSheet
+    media CDATA #IMPLIED
+    type CDATA #REQUIRED
+    target CDATA #IMPLIED
+    loaded CDATA #IMPLIED
+	rendered CDATA #IMPLIED>
+
+<!ELEMENT script ((contents|src)+)>
 <!ATTLIST script
     clientSide CDATA #REQUIRED
+    type CDATA #REQUIRED
+    target CDATA #IMPLIED
+	charset CDATA #IMPLIED
+    loaded CDATA #IMPLIED
+	rendered CDATA #IMPLIED>
+
+<!ELEMENT bundle EMPTY>
+<!ATTLIST bundle
+    var CDATA #REQUIRED
     src CDATA #REQUIRED
-    target CDATA #REQUIRED
-    type CDATA #REQUIRED>
+    target CDATA #IMPLIED
+    loaded CDATA #IMPLIED
+	rendered CDATA #IMPLIED>
+
+<!ELEMENT dojoModule EMPTY>
+<!ATTLIST dojoModule
+    name CDATA #REQUIRED
+    target CDATA #IMPLIED
+    condition CDATA #IMPLIED
+	rendered CDATA #IMPLIED
+	loaded CDATA #IMPLIED>
+
+<!ELEMENT linkResource ((contents|href)+)>
+<!ATTLIST linkResource
+	title CDATA #REQUIRED
+	type CDATA #REQUIRED
+    target CDATA #IMPLIED
+	hreflang CDATA #IMPLIED
+    charset CDATA #IMPLIED
+    media CDATA #IMPLIED
+	rel CDATA #IMPLIED
+	rev CDATA #IMPLIED
+	dir CDATA #IMPLIED
+    style CDATA #IMPLIED
+    styleClass CDATA #IMPLIED
+	rendered CDATA #IMPLIED
+	loaded CDATA #IMPLIED>
+
+<!ELEMENT metaData EMPTY>
+<!ATTLIST metaData
+    name CDATA #REQUIRED
+    target CDATA #IMPLIED
+    content CDATA #IMPLIED
+	httpEquiv CDATA #IMPLIED
+	scheme CDATA #IMPLIED
+	rendered CDATA #IMPLIED
+	loaded CDATA #IMPLIED>
 
 <!ELEMENT property (name|value)>
 <!ATTLIST property
+	target CDATA #IMPLIED
+	complex CDATA #IMPLIED
     mode CDATA #IMPLIED>
 
 <!ELEMENT value (#PCDATA)>
