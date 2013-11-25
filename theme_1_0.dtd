@@ -23,7 +23,7 @@
 <!ATTLIST control
     override CDATA #IMPLIED>
 
-<!ELEMENT complex ((name|property)*)>
+<!ELEMENT complex ((name|property|type)*)>
 <!ATTLIST complex
     type CDATA #IMPLIED>
 
@@ -94,7 +94,7 @@
 	rendered CDATA #IMPLIED
 	loaded CDATA #IMPLIED>
 
-<!ELEMENT property (name|value)>
+<!ELEMENT property (name|value|complex)>
 <!ATTLIST property
 	target CDATA #IMPLIED
 	complex CDATA #IMPLIED
