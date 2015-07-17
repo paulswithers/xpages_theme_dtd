@@ -18,6 +18,8 @@ Enter the following code at the top of a Theme resource:
 ```
 That will point to the dtd resource in this project.
 
+However, you must remove the lines before building and testing the application on the server, otherwise the XPages runtime will not be able to parse the file.
+
 ### Using in an NSF (Offline)
 If you want to access the content assist while working offline, you'll need a local copy of the file. The easiest option is to copy the content from the above URL and paste into a text file. Save it locally on your file system, e.g. to "C:\temp\theme_1_0.dtd".
 
@@ -28,6 +30,8 @@ Then enter the following code at the top of a Theme resource:
 "C:\temp\theme_1_0.dtd">
 ```
 Whether processing from a local Domino server or from a local NSF, the file will still be accessible.
+
+As before, you must remove the lines before building and testing the application on the server, otherwise the XPages runtime will not be able to parse the file.
 
 ### Adding to Snippets
 For more details about how to add the DTD reference to the Snippets view in Domino Designer, see http://www.intec.co.uk/enabling-typeahead-content-assist-in-themes-and-using-the-eclipse-snippets-view/
