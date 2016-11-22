@@ -98,7 +98,7 @@
 <!ATTLIST property
 	target CDATA #IMPLIED
 	complex CDATA #IMPLIED
-    mode (concat|override) CDATA #IMPLIED>
+    mode CDATA #IMPLIED>
 
 <!ELEMENT value (#PCDATA)>
 
